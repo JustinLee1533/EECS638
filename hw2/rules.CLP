@@ -1,57 +1,62 @@
 (defrule r1
-  (A)
-  (B)
+  (factoid (name A))
+  (factoid (name B))
   =>
-  (assert (E))
+  (assert(factoid (name E)))
 )
 
 (defrule r2
-  (A)(C)
+  (factoid (name A))
+  (factoid (name C))
   =>
-  (assert (F))
+  (assert(factoid (name F)))
 )
 
 (defrule r3
-  (not(A))(B)
+  (not(factoid (name A)))
+  (factoid (name B))
   =>
-  (assert(D))
+  (assert(factoid (name D)))
 )
 
 (defrule r4
-  (not(A))
-  (not(B))
+  (not(factoid (name A)))
+  (not(factoid (name B)))
   =>
-  (assert (E))
+  (assert(factoid (name E)))
 )
 
 (defrule r5
-  (B) (C)
+  (factoid (name B))
+  (factoid (name C))
   =>
-  (assert (F))
+  (assert(factoid (name F)))
 )
 
 (defrule r6
-  (D)
-  (not(F))
+  (factoid (name D))
+  (not(factoid (name F)))
   =>
-  (assert (H))
-
+  (assert(factoid (name H)))
 )
 
 (defrule r7
-  (D)(F)
+  (factoid (name D))
+  (factoid (name F))
   =>
-  (assert (G))
+  (assert(factoid (name G)))
 )
 
 (defrule r8
-  (E)(F)
+  (factoid (name E))
+  (factoid (name F))
   =>
-  (assert(H))
+  (assert(factoid (name H)))
 )
 
 (defrule r9
-  (E)(not(F))
+  (factoid (name E))
+  (not(factoid (name F)))
   =>
-  (assert(G))
+  (assert(factoid (name G)))
 )
