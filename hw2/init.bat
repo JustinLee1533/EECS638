@@ -1,0 +1,6 @@
+(clear)
+(load facts.CLP)
+(load rules.CLP)
+(reset)
+(watch facts)
+(watch rules)
