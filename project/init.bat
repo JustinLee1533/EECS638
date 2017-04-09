@@ -1,17 +1,20 @@
 (clear)
-(load facts.CLP)
-(load rules.CLP)
-#open file to read from
-#open file to write to
+
+(open "input.txt" input "r")
+(open ("output.txt" output "w")
+
+(load facts.clp)
+(load rules.clp)
+(load functions.clp)
+
 (reset)
 (watch facts)
 (watch rules)
 (agenda)
 (facts)
-(run)
-(facts)
-(save "session.txt")
+#(run)
+#(facts)
+#(save "session.txt")
 #close files
-
-
-#usefule functions: read, printout, readline, format
+#(close input)
+#(close output)
