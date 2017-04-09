@@ -7,8 +7,6 @@
 
 ;;reads in line and determines which request to grant
 (defrule readLine
-  ;;read in the request
-
 
   ?fact0 <- (requestResource (name "X") (request no))
   ?fact1 <- (requestResource (name "Y") (request no))
@@ -18,6 +16,7 @@
   ?fact4 <- (systemHalt (halt no))
 
   =>
+  ;;read in the request
   (bind ?x (read input))
   (bind ?y (read input))
   (bind ?z (read input))
@@ -58,6 +57,8 @@
   ?fact0 <- (requestResource (name "None") (request yes))
   =>
   (modify ?fact0 (request no))
+  (printState)
+
 
   ;;TODO: call print function here and in all rules except readline
 
@@ -95,9 +96,11 @@
 
   (modify ?fact5 (grant yes))
 
-  ?*p1* = 1
+  (bind ?*p1* 1)
   ;;output to file
   ;;output to console
+  (printState)
+
 )
 
 ;;transition from p1 to p2
@@ -114,10 +117,12 @@
   (modify ?fact2 (hasResource no))
   (modify ?fact3 (hasResource yes))
 
-  ?*p1* = 0
-  ?*p2* = 1
+  (bind ?*p1* 0)
+  (bind ?*p2* 1)
   ;;output to file
   ;;output to console
+  (printState)
+
 )
 
 ;;transition from p2 to p3
@@ -134,10 +139,12 @@
   (modify ?fact2 (hasResource no))
   (modify ?fact3 (hasResource yes))
 
-  ?*p2* = 0
-  ?*p3* = 1
+  (bind ?*p2* 0)
+  (bind ?*p3* 1)
   ;;output to file
   ;;output to console
+  (printState)
+
 )
 
 ;;transition from p3 to p4
@@ -154,10 +161,12 @@
   (modify ?fact1 (hasResource no))
   (modify ?fact2 (hasResource yes))
 
-  ?*p3* = 0
-  ?*p4* = 1
+  (bind ?*p3* 0)
+  (bind ?*p4* 1)
   ;;output to file
   ;;output to console
+  (printState)
+
 )
 
 
@@ -190,9 +199,11 @@
   (modify ?fact5  (request no))
   (modify ?fact6  (grant no))
 
-  ?*p4* = 0
+  (bind ?*p4*  0)
   ;;output to file
   ;;output to console
+  (printState)
+
 )
 
 
@@ -228,9 +239,11 @@
   (modify ?fact4 (hasResource yes))
   (modify ?fact5 (grant yes))
 
-  ?*p5* = 1
+  (bind ?*p5* 1)
   ;;output to file
   ;;output to console
+  (printState)
+
 )
 
 ;;transition from p5 to p6
@@ -247,10 +260,12 @@
   (modify ?fact1 (hasResource no))
   (modify ?fact2 (hasResource yes))
 
-  ?*p5* = 0
-  ?*p6* = 1
+  (bind ?*p5* 0)
+  (bind ?*p6* 1)
   ;;output to file
   ;;output to console
+  (printState)
+
 )
 
 ;;transition from p6 to p7
@@ -267,10 +282,12 @@
   (modify ?fact1 (hasResource no))
   (modify ?fact2 (hasResource yes))
 
-  ?*p6* = 0
-  ?*p7* = 1
+  (bind ?*p6* 0)
+  (bind ?*p7* 1)
   ;;output to file
   ;;output to console
+  (printState)
+
 )
 
 ;;Produce product Y
@@ -301,9 +318,11 @@
   (modify ?fact5  (request no))
   (modify ?fact6  (grant no))
 
-  ?*p7* = 0
+  (bind ?*p7* 0)
   ;;output to file
   ;;output to console
+  (printState)
+
 )
 
 ;;Product Z transitions
@@ -333,8 +352,10 @@
   (modify ?fact2 (hasResource yes))
   (modify ?fact4 (grant yes))
 
-  ?*p8* = 1
+  (bind ?*p8* 1)
+
   ;;output to file
+  (printState)
   ;;output to console
 )
 
@@ -353,10 +374,13 @@
   (modify ?fact1 (hasResource no))
   (modify ?fact2 (hasResource yes))
 
-  ?*p8* = 0
-  ?*p9* = 1
+  (bind ?*p8* 0)
+  (bind ?*p9* 1)
+
   ;;output to file
   ;;output to console
+  (printState)
+
 )
 
 ;;transition from p9 to p10
@@ -374,10 +398,12 @@
   (modify ?fact1 (hasResource no))
   (modify ?fact2 (hasResource yes))
 
-  ?*p9* = 0
-  ?*p10* = 1
+  (bind ?*p9* 0)
+  (bind ?*p10* 1)
   ;;output to file
   ;;output to console
+  (printState)
+
 )
 
 ;;Produce product Z
@@ -405,8 +431,10 @@
   (modify ?fact5  (request no))
   (modify ?fact6  (grant no))
 
-  ?*p10* = 0
-  
+  (bind ?*p10* 0)
+
   ;;output to file
   ;;output to console
+  (printState)
+
 )
