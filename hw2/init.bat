@@ -8,3 +8,4 @@
 (facts)
 (run)
 (facts)
+(save "session.txt")

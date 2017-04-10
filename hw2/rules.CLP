@@ -1,5 +1,11 @@
+; Author: Justin Lee
+; file: rules.CLP
+; date: 2/28/2017
+; about: contains rule definitions for homework 2
+
 (defrule r1
   (declare (salience 1))
+<<<<<<< Updated upstream
   (factoid (name A))
   (factoid (name B))
   =>
