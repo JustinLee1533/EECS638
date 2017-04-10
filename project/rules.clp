@@ -21,7 +21,9 @@
   (bind ?y (read input))
   (bind ?z (read input))
 
-  (printout t "Line inputs: " ?x ?y ?z crlf)
+  (printout output " " crlf)
+
+  (printout output "Line inputs: " ?x ?y ?z crlf)
   ;;read in line from input file and determine which resource to grant if any
   (if (= ?x 1);;1XX
     then
@@ -48,6 +50,7 @@
     )
     then
     (modify ?fact4 (halt yes)) ;;done
+    (printout output "End of file reached, halting" crlf)
   )
 
 )
@@ -57,6 +60,7 @@
   ?fact0 <- (requestResource (name "None") (request yes))
   =>
   (modify ?fact0 (request no))
+  (printout output "No resource requested and none granted" crlf)
   (printState)
 
 
@@ -97,8 +101,10 @@
   (modify ?fact5 (grant yes))
 
   (bind ?*p1* 1)
+
   ;;output to file
-  ;;output to console
+  (printout output "Removing resource from 'Resource A' and 'Resource B'" crlf)
+  (printout output "Moving resource to 'Request for product X' and 'p1'" crlf)
   (printState)
 
 )
@@ -425,7 +431,7 @@
   (modify ?fact2 (hasResource no))
 
   ;;put resource in Resource C place 1 & 2
-  (modify ?fact3 (hasResource1 no)(hasResource2 no))
+  (modify ?fact3 (hasResource1 yes)(hasResource2 yes))
 
   ;; remove global request and grant for product Y
   (modify ?fact5  (request no))

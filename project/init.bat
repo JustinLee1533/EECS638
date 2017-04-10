@@ -1,20 +1,19 @@
 (clear)
 
 (open "input.txt" input "r")
-(open ("output.txt" output "w")
+(open "output.txt" output "w")
 
 (load facts.clp)
-(load rules.clp)
 (load functions.clp)
+(load rules.clp)
 
 (reset)
 (watch facts)
 (watch rules)
 (agenda)
 (facts)
-#(run)
-#(facts)
-#(save "session.txt")
-#close files
-#(close input)
-#(close output)
+(run)
+(facts)
+
+(close input)
+(close output)
