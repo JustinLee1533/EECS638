@@ -4,3 +4,7 @@
 (reset)
 (watch facts)
 (watch rules)
+(agenda)
+(facts)
+(run)
+(facts)
