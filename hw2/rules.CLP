@@ -5,7 +5,6 @@
 
 (defrule r1
   (declare (salience 1))
-<<<<<<< Updated upstream
   (factoid (name A))
   (factoid (name B))
   =>

@@ -1,4 +1,5 @@
 (defglobal
+  ;;global variables for state, used for printing
     ?*p1* = 0
     ?*p2* = 0
     ?*p3* = 0
@@ -9,7 +10,14 @@
     ?*p8* = 0
     ?*p9* = 0
     ?*p10* = 0
+
+    ;;counts for keeping track of resources produced
+    ?*countX* = 0
+    ?*countY* = 0
+    ?*countZ* = 0
 )
+
+
 
 ;;templates
 (deftemplate requestPlace

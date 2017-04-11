@@ -127,6 +127,9 @@
   (bind ?*p2* 1)
   ;;output to file
   ;;output to console
+  (printout output "Removing resource from 'p1'" crlf)
+  (printout output "Moving resource to 'p2'" crlf)
+
   (printState)
 
 )
@@ -149,6 +152,9 @@
   (bind ?*p3* 1)
   ;;output to file
   ;;output to console
+
+  (printout output "removing resource from 'p2'" crlf)
+  (printout output "moving resource to 'p3'" crlf)
   (printState)
 
 )
@@ -171,6 +177,9 @@
   (bind ?*p4* 1)
   ;;output to file
   ;;output to console
+ 
+  (printout output "removing resource from 'p3'" crlf)
+  (printout output "moving resource to 'p4'" crlf)
   (printState)
 
 )
@@ -206,10 +215,14 @@
   (modify ?fact6  (grant no))
 
   (bind ?*p4*  0)
+  (bind ?*countX* (+ ?*countX* 1))
   ;;output to file
-  ;;output to console
+  (printout output "Removing resource from 'Product X Request' and 'P4'" crlf)
+  (printout output "Moving resource to 'Resource A' and 'Resource B'" crlf)
   (printState)
 
+  (printout output "Product X produced" crlf)
+  (printCount)
 )
 
 
@@ -247,7 +260,8 @@
 
   (bind ?*p5* 1)
   ;;output to file
-  ;;output to console
+  (printout output "Removing resource from 'Resource B' and 'Resource C'" crlf)
+  (printout output "Moving resource to 'Request for product Y' and 'p5'" crlf)
   (printState)
 
 )
@@ -269,7 +283,9 @@
   (bind ?*p5* 0)
   (bind ?*p6* 1)
   ;;output to file
-  ;;output to console
+  
+  (printout output "removing resource from 'p5'" crlf)
+  (printout output "moving resource to 'p6'" crlf)
   (printState)
 
 )
@@ -290,8 +306,10 @@
 
   (bind ?*p6* 0)
   (bind ?*p7* 1)
+
   ;;output to file
-  ;;output to console
+  (printout output "removing resource from 'p6'" crlf)
+  (printout output "moving resource to 'p7'" crlf)
   (printState)
 
 )
@@ -325,16 +343,20 @@
   (modify ?fact6  (grant no))
 
   (bind ?*p7* 0)
+  (bind ?*countY* (+ ?*countY* 1))
   ;;output to file
-  ;;output to console
+  (printout output "Removing resource from 'Product Y Request' and 'p7'" crlf)
+  (printout output "Moving resource to 'Resource B' and 'Resource C'" crlf)
   (printState)
+  (printout output "Product Y produced" crlf)
+  (printCount)
 
 )
 
 ;;Product Z transitions
 ;;allocate Z resource rule
 (defrule grantZ
-  ;; global request for product Y
+  ;; global request for product Z
   ?fact0 <- (requestResource (name "Z") (request yes))
 
   ;;Grant Product Z request, and p8 does not have resource
@@ -361,8 +383,9 @@
   (bind ?*p8* 1)
 
   ;;output to file
+  (printout output "Removing 2 resources from 'Resource C'" crlf)
+  (printout output "Moving resource to 'Request for product Z' and 'p8'" crlf)
   (printState)
-  ;;output to console
 )
 
 ;;transition from p8 to p9
@@ -384,7 +407,8 @@
   (bind ?*p9* 1)
 
   ;;output to file
-  ;;output to console
+  (printout output "removing resource from 'p8'" crlf)
+  (printout output "moving resource to 'p9'" crlf)
   (printState)
 
 )
@@ -406,8 +430,10 @@
 
   (bind ?*p9* 0)
   (bind ?*p10* 1)
+
   ;;output to file
-  ;;output to console
+  (printout output "removing resource from 'p9'" crlf)
+  (printout output "moving resource to 'p10'" crlf)
   (printState)
 
 )
@@ -438,9 +464,14 @@
   (modify ?fact6  (grant no))
 
   (bind ?*p10* 0)
+  (bind ?*countZ* (+ ?*countZ* 1))
+
 
   ;;output to file
-  ;;output to console
+  (printout output "Removing resource from 'Product Z Request' and 'p10'" crlf)
+  (printout output "Moving 2 resources to 'Resource C'" crlf)
   (printState)
+  (printout output "Product Z produced" crlf)
+  (printCount)
 
 )
